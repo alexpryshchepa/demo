@@ -2,11 +2,10 @@
   "name": "apical",
   "version": "0.0.0",
   "private": true,
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn run fix",
-      "pre-push": "yarn run fix"
-    }
+  "engines": {
+    "yarn": ">=1.12.3",
+    "node": ">=10.14.0",
+    "npm": ">=6.4.1"
   },
   "scripts": {
     "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
@@ -19,6 +18,12 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "yarn run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run fix",
+      "pre-push": "yarn run fix"
+    }
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
