@@ -1,0 +1,23 @@
+@import '~styles/variables';
+@import '~styles/functions';
+
+.link {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 18px;
+  min-width: 120px;
+  background-color: $color-primary;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 17px;
+  transition: tn(background-color);
+  
+  &:hover {
+    background-color: $color-primary-deep;
+  }
+}
+
+.button {
+  
+}

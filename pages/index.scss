@@ -1,0 +1,74 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.root {
+  position: relative;
+  width: 100%;
+  background-image: linear-gradient(135deg, #f9fcfe, #e0eaf8);
+}
+
+.canvas {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // Animation
+  opacity: 0;
+  will-change: opacity;
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 2;
+  padding: 160px 0;
+}
+
+.content {
+  max-width: 50%;
+  padding: 0 80px;
+  
+  @include desktop-small {
+    max-width: 80%;
+  }
+}
+
+.title {
+  margin-bottom: 16px;
+  color: $color-dark;
+  font-weight: $font-weight-light;
+  line-height: 46px;
+  font-size: 42px;
+  text-transform: uppercase;
+  // Animation
+  opacity: 0;
+  transform: translate(-20px, -20px) scale(1.05);
+  will-change: opacity, transform;
+
+  & > span {
+    color: $color-primary;
+  }
+}
+
+.text {
+  margin-bottom: 48px;
+  color: $color-dark;
+  font-size: 15px;
+  line-height: 24px;
+  // Animation
+  opacity: 0;
+  transform: translate(-20px, -20px) scale(1.05);
+  will-change: opacity, transform;
+}
+
+.button {
+  // Animation
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-20px, -20px) scale(1.05);
+  will-change: opacity, transform;
+}

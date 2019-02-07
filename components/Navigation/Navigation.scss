@@ -1,0 +1,47 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+@import '~styles/functions';
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  @include text-overflow;
+  position: relative;
+  display: block;
+  text-align: center;
+  padding: 10px 20px 36px 20px;
+  color: $color-dark;
+  font-size: 14px;
+  text-decoration: none;
+  transition: tn(color);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+    width: 2px;
+    height: 26px;
+    background-color: $color-primary;
+    transform: translateY(100%);
+    will-change: transform;
+    transition: tn(transform);
+  }
+
+  &:hover {
+    color: $color-primary;
+
+    &::after {
+      transform: translateY(0);
+    }
+  }
+}
+
+.linkActive {
+  composes: link;
+  color: $color-primary;
+}

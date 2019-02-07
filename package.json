@@ -1,0 +1,53 @@
+{
+  "name": "apical",
+  "version": "0.0.0",
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run fix",
+      "pre-push": "yarn run fix"
+    }
+  },
+  "scripts": {
+    "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
+    "lint-css": "stylelint \"src/**/*.{css,less,styl,scss,sass,sss}\"",
+    "lint": "yarn run lint-js && yarn run lint-css",
+    "fix-js": "yarn run lint-js --fix",
+    "fix-css": "yarn run lint-css --fix",
+    "fix": "yarn run fix-js && yarn run fix-css",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "yarn run build"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "@zeit/next-sass": "^1.0.1",
+    "chroma-js": "^2.0.2",
+    "gsap": "^2.0.2",
+    "immutable": "^4.0.0-rc.12",
+    "lodash": "^4.17.11",
+    "next": "^7.0.2",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.6.2",
+    "query-string": "^6.2.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-thunk": "^2.3.0",
+    "reset-css": "^4.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "husky": "^1.3.1",
+    "stylelint": "^9.10.1"
+  }
+}

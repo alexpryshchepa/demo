@@ -1,0 +1,20 @@
+$width-mobile: 768px;
+$width-tablet: 1024px;
+$width-desktop-small: 1280px;
+$width-container: 1200px;
+
+$color-primary: #ae9670;
+$color-primary-deep: #a28a63;
+$color-dark: #282828;
+$color-error: #db5353;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+:export {
+  colorPrimary: $color-primary;
+  colorDark: $color-dark;
+  colorError: $color-error;
+  widthContainer: $width-container;
+}

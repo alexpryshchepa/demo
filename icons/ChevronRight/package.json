@@ -1,0 +1,6 @@
+{
+  "name": "ChevronRight",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ChevronRight.js"
+}

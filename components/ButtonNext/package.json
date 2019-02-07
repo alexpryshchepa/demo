@@ -1,0 +1,6 @@
+{
+  "name": "ButtonNext",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ButtonNext.js"
+}

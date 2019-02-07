@@ -1,0 +1,40 @@
+@import '~styles/variables';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.body {
+  flex-grow: 1;
+  display: flex;
+}
+
+.wall {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111f27;
+}
+
+.logo {
+  color: $color-primary;
+  // Animation
+  will-change: opacity, transform;
+}

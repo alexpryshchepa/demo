@@ -1,0 +1,57 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.root {
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.logo {
+  color: $color-primary;
+  margin: 26px 20px 26px 0;
+  // Animation
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  will-change: opacity, transform;
+}
+
+.nav {
+  margin-left: auto;
+  // Animation
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-18px);
+  will-change: opacity, transform;
+}
+
+.login {
+  margin: 26px 0 26px 20px;
+  // Animation
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-16px);
+  will-change: opacity, transform;
+}
+
+.line {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(#c4c4c4, 0.4);
+  // Animation
+  opacity: 0;
+  transform: translateX(-100%);
+  will-change: opacity, transform;
+}

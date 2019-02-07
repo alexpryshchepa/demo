@@ -1,0 +1,37 @@
+@mixin mobile {
+  @media (max-width: #{$width-mobile - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$width-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop-small {
+  @media (max-width: #{$width-desktop-small - 1px}) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+      @content;
+  }
+}
+
+@mixin text-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $width-container;
+  margin: 0 auto;
+}

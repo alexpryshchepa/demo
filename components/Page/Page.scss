@@ -1,0 +1,17 @@
+:global {
+  @import '~reset-css';
+  
+  html {
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: 'Roboto', 'Helvetica', 'Georgia', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}

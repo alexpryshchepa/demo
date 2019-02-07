@@ -1,0 +1,59 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+@import '~styles/functions';
+
+.root {
+  background-color: #111f27;
+  overflow: hidden;
+}
+
+.container {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  color: rgba(#fff, 0.5);
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.copyright {
+  margin-right: 20px;
+}
+
+.langs {
+  display: flex;
+  align-items: baseline;
+  margin-left: 20px;
+}
+
+.lang {
+  position: relative;
+  padding: 4px 8px;
+  color: rgba(#fff, 0.5);
+  text-decoration: none;
+  transition: tn(color);
+  
+  &:first-of-type {
+    margin-left: 16px;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    transition: tn(background-color);
+  }
+  
+  &:hover {
+    color: #fff;
+    
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+}
