@@ -18,10 +18,27 @@ class Home extends React.Component {
     this.buttonRef = React.createRef();
 
     this.entryAnimation = new TimelineLite({ paused: true });
+
+    this.handleMousemove = null;
+    this.handleMouseout = null;
+    this.handleResize = null;
+
+    this.initCanvasAnimation = null;
   }
 
   componentDidMount() {
     const canvas = this.canvasRef.current;
+
+    function getPaddingRight() {
+      return canvas.offsetWidth - parseInt(widthContainer, 10) > 0
+        ? ((canvas.offsetWidth - parseInt(widthContainer, 10)) / 2) + 80
+        : 80;
+    }
+
+    function getPaddingLeft() {
+      return canvas.offsetWidth / 2;
+    }
+
     const options = {
       padding: {
         top: 160,
@@ -47,17 +64,15 @@ class Home extends React.Component {
     let hover;
 
     Vector2.prototype.repel = function (start, from, base, ex) {
-      this.x += ((Math.cos(from.angleTo(this)) * (Math.pow(base, ex) / this.distanceTo(from))) + (start.x - this.x)) * options.repulsion;
-      this.y += ((Math.sin(from.angleTo(this)) * (Math.pow(base, ex) / this.distanceTo(from))) + (start.y - this.y)) * options.repulsion;
+      this.x
+        += ((Math.cos(from.angleTo(this))
+        * ((base ** ex) / this.distanceTo(from)))
+        + (start.x - this.x)) * options.repulsion;
+      this.y
+        += ((Math.sin(from.angleTo(this))
+        * ((base ** ex) / this.distanceTo(from)))
+        + (start.y - this.y)) * options.repulsion;
     };
-    
-    function getPaddingRight() {
-      return canvas.offsetWidth - parseInt(widthContainer) > 0 ? ((canvas.offsetWidth - parseInt(widthContainer)) / 2) + 80 : 80;
-    }
-
-    function getPaddingLeft() {
-      return canvas.offsetWidth / 2;
-    }
 
     function mouseHandler(e) {
       hover = e.type === 'mousemove';
@@ -76,23 +91,28 @@ class Home extends React.Component {
       const xPoints = endX / options.step;
       const yPoints = endY / options.step;
 
-      for (let i = 0; i <= xPoints; i++) {
-        for (let j = 0; j <= yPoints; j++) {
+      function update() {
+        this.position.repel(this.startPosition, mouse, options.threshold, 1.8);
+      }
+
+      for (let i = 0; i <= xPoints; i += 1) {
+        for (let j = 0; j <= yPoints; j += 1) {
           points.push({
             size: options.size,
             value: Math.round(Math.random()),
             position: new Vector2(Math.random() * canvas.width, Math.random() * canvas.height),
-            startPosition: new Vector2(options.padding.left + (i * options.step), options.padding.top + (j * options.step)),
-            update: function() {
-              this.position.repel(this.startPosition, mouse, options.threshold, 1.8);
-            }
+            startPosition: new Vector2(
+              options.padding.left + (i * options.step),
+              options.padding.top + (j * options.step),
+            ),
+            update,
           });
         }
       }
 
       const colors = chroma.scale(['#4f8aaa', '#ae9670']).colors(points.length);
 
-      for (let i = 0; i < points.length; i++) {
+      for (let i = 0; i < points.length; i += 1) {
         points[i].color = colors[i];
       }
     }
@@ -100,7 +120,7 @@ class Home extends React.Component {
     function createRects() {
       rects = [];
 
-      for (let i = 0; i <= options.rectsCount; i++) {
+      for (let i = 0; i <= options.rectsCount; i += 1) {
         const x = Math.floor(Math.random() * canvas.width);
         const y = Math.floor(Math.random() * canvas.height);
 
@@ -123,20 +143,24 @@ class Home extends React.Component {
       osCtx.fillStyle = gradient;
       osCtx.fillRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < rects.length; i++) {
-        let r = rects[i];
-        
+      for (let i = 0; i < rects.length; i += 1) {
+        const r = rects[i];
+
         osCtx.fillStyle = r.color;
         osCtx.fillRect(r.x, r.y, options.size, options.size);
       }
 
-      for (let i = 0; i < points.length; i++) {
-        let p = points[i];
+      for (let i = 0; i < points.length; i += 1) {
+        const p = points[i];
         p.update();
 
         osCtx.font = `bold ${options.size}px/${options.size}px Roboto`;
         osCtx.fillStyle = p.color;
-        osCtx.fillText(p.value, p.position.x - osCtx.measureText(p.value).width / 2, p.position.y + p.size / 2);
+        osCtx.fillText(
+          p.value,
+          p.position.x - osCtx.measureText(p.value).width / 2,
+          p.position.y + p.size / 2,
+        );
       }
 
       ctx.drawImage(osCanvas, 0, 0);
@@ -151,26 +175,29 @@ class Home extends React.Component {
       options.padding.right = getPaddingRight();
       options.padding.left = getPaddingLeft();
 
-      canvas.width = osCanvas.width = this.canvasRef.current.offsetWidth;
-      canvas.height = osCanvas.height =  this.canvasRef.current.offsetHeight;
+      osCanvas.width = this.canvasRef.current.offsetWidth;
+      osCanvas.height = this.canvasRef.current.offsetHeight;
+
+      canvas.width = osCanvas.width;
+      canvas.height = osCanvas.height;
 
       center = new Vector2(
         options.padding.left + (canvas.width - options.padding.right - options.padding.left) / 2,
-        options.padding.top + (canvas.height - options.padding.top - options.padding.bottom) / 2
+        options.padding.top + (canvas.height - options.padding.top - options.padding.bottom) / 2,
       );
 
       mouse = new Vector2(center.x, center.y);
       userMouse = new Vector2(center.x, center.y);
-  
+
       createRects();
       createGrid();
-    }
+    };
 
     const init = () => {
-      osCanvas = document.createElement("canvas");
+      osCanvas = document.createElement('canvas');
 
-      ctx = canvas.getContext("2d");
-      osCtx = osCanvas.getContext("2d");
+      ctx = canvas.getContext('2d');
+      osCtx = osCanvas.getContext('2d');
 
       hover = false;
 
@@ -178,23 +205,21 @@ class Home extends React.Component {
       createRects();
       createGrid();
       loop();
-    }
+    };
 
-    window.requestAnimationFrame = (() => {
-      return window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        function(callback) {
+    window.requestAnimationFrame = (() => window.requestAnimationFrame
+        || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame
+        || window.oRequestAnimationFrame
+        || window.msRequestAnimationFrame
+        || function (callback) {
           window.setTimeout(callback, 1000 / 60);
-        };
-    })();
+        })();
 
     this.handleMousemove = mouseHandler;
     this.handleMouseout = mouseHandler;
     this.handleResize = resize;
-    
+
     this.initCanvasAnimation = init;
 
     this.fillEntryAnimation().play();
@@ -205,12 +230,6 @@ class Home extends React.Component {
     window.removeEventListener(this.handleMouseout);
     window.removeEventListener(this.handleResize);
   }
-
-  handleMousemove = null;
-  handleMouseout = null;
-  handleResize = null;
-
-  initCanvasAnimation = null;
 
   fillEntryAnimation = () => this.entryAnimation
     .add(this.layoutRef.current.entryAnimation.play())
@@ -234,8 +253,15 @@ class Home extends React.Component {
           <canvas className={s.canvas} ref={this.canvasRef} />
           <div className={s.container}>
             <div className={s.content}>
-              <h2 className={s.title} ref={this.titleRef}>Artificial intelligence <span>for financial markets</span></h2>
-              <p className={s.text} ref={this.textRef}>Harnessing the power of machine learning to develop an automated and data-driven investment management firm.</p>
+              <h2 className={s.title} ref={this.titleRef}>
+                Artificial intelligence
+                <span>for financial markets</span>
+              </h2>
+              <p className={s.text} ref={this.textRef}>
+                Harnessing the power of machine learning
+                to develop an automated and data-driven
+                investment management firm.
+              </p>
               <div className={s.button} ref={this.buttonRef}>
                 <ButtonNext>Discover how</ButtonNext>
               </div>

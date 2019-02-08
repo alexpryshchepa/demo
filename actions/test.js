@@ -1,7 +1,9 @@
-import { TEST } from '../constants';
+import TEST from '../constants';
 
-export function runTestAction() {
+function runTestAction() {
   return {
     type: TEST,
   };
 }
+
+export default { runTestAction };

@@ -1,8 +1,8 @@
-import { TEST } from '../constants';
+import TEST from '../constants';
 
 const initialState = {};
 
-export default function animation(state = initialState, action) {
+export default function test(state = initialState, action) {
   switch (action.type) {
     case TEST:
       return {
