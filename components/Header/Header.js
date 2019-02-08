@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
+import { Link } from 'i18n';
 import Navigation from 'components/Navigation';
 import Button from 'components/Button';
 import { TimelineLite } from 'gsap';

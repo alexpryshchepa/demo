@@ -1,0 +1,7 @@
+{
+  "title": "Künstliche Intelligenz",
+  "title-accent": "für die Finanzmärkte",
+  "description": "Maschinelles Lernen nutzen, um ein automatisiertes und datengesteuertes Investment-Management-Unternehmen zu entwickeln.",
+  "error-with-status": "Auf dem Server ist ein Fehler ({{statusCode}}) aufgetreten",
+  "error-without-status": "Auf dem Server ist ein Fehler aufgetreten"
+}

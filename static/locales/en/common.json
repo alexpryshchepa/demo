@@ -1,0 +1,7 @@
+{
+  "title": "Artificial intelligence",
+  "title-accent": "for financial markets",
+  "description": "Harnessing the power of machine learning to develop an automated and data-driven investment management firm.",
+  "error-with-status": "A {{ statusCode }} error occurred on server",
+  "error-without-status": "An error occurred on the server"
+}

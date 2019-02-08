@@ -27,13 +27,15 @@
   display: flex;
   align-items: baseline;
   margin-left: 20px;
+  margin-right: -8px;
 }
 
 .lang {
   position: relative;
   padding: 4px 8px;
   color: rgba(#fff, 0.5);
-  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
   transition: tn(color);
 
   &:first-of-type {
@@ -57,4 +59,9 @@
       background-color: $color-primary;
     }
   }
+}
+
+.langActive {
+  composes: lang;
+  color: #fff;
 }

@@ -1,3 +1,5 @@
+@import '~styles/variables';
+
 :global {
   @import '~reset-css';
 
@@ -8,10 +10,30 @@
   }
 
   body {
-    font-family: 'Roboto', 'Helvetica', 'Georgia', sans-serif;
+    color: $color-dark;
+    font-family: $font-family-base;
   }
 
   * {
     box-sizing: border-box;
+  }
+
+  input,
+  textarea,
+  button,
+  select {
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: $color-dark;
+    font-family: $font-family-base;
+  }
+
+  textarea {
+    resize: none;
+    overflow-y: auto;
   }
 }

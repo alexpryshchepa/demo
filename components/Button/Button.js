@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import { Link } from 'i18n';
 import s from './Button.scss';
 
 class Button extends Component {

@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
+import { withNamespaces } from 'i18n';
 import Layout from 'components/Layout';
 import ButtonNext from 'components/ButtonNext';
 import Vector2 from 'libs/Vector2';
@@ -9,6 +11,16 @@ import cssVariables from 'styles/variables.scss';
 import s from './index.scss';
 
 class Home extends React.Component {
+  static async getInitialProps() {
+    return {
+      namespacesRequired: ['common'],
+    };
+  }
+
+  static propTypes = {
+    t: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
 
@@ -248,6 +260,8 @@ class Home extends React.Component {
     .to(this.canvasRef.current, 0.8, { opacity: 1 }, '-=0.9');
 
   render() {
+    const { t } = this.props;
+
     return (
       <Fragment>
         <Head><title>Apical - Home</title></Head>
@@ -257,13 +271,11 @@ class Home extends React.Component {
             <div className={s.container}>
               <div className={s.content}>
                 <h2 className={s.title} ref={this.titleRef}>
-                  Artificial intelligence
-                  <span>for financial markets</span>
+                  {`${t('title')} `}
+                  <span>{t('title-accent')}</span>
                 </h2>
                 <p className={s.text} ref={this.textRef}>
-                  Harnessing the power of machine learning
-                  to develop an automated and data-driven
-                  investment management firm.
+                  {t('description')}
                 </p>
                 <div className={s.button} ref={this.buttonRef}>
                   <ButtonNext>Discover how</ButtonNext>
@@ -277,4 +289,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withNamespaces('common')(Home);

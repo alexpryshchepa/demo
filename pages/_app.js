@@ -1,21 +1,12 @@
 import '@babel/polyfill';
 import App, { Container } from 'next/app';
+import { appWithTranslation } from 'i18n';
 import React from 'react';
 import Page from 'components/Page';
 import withReduxStore from 'core/withReduxStore';
 import { Provider } from 'react-redux';
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let componentProps = {};
-
-    if (Component.getInitialProps) {
-      componentProps = await Component.getInitialProps(ctx);
-    }
-
-    return { componentProps };
-  }
-
   render() {
     const {
       Component,
@@ -35,4 +26,4 @@ class MyApp extends App {
   }
 }
 
-export default withReduxStore(MyApp);
+export default withReduxStore(appWithTranslation(MyApp));

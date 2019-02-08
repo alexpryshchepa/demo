@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import { Link } from 'i18n';
 import { withRouter } from 'next/router';
 import s from './Navigation.scss';
 
