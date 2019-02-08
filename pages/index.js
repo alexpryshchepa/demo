@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Head from 'next/head';
 import Layout from 'components/Layout';
 import ButtonNext from 'components/ButtonNext';
 import Vector2 from 'libs/Vector2';
@@ -248,27 +249,30 @@ class Home extends React.Component {
 
   render() {
     return (
-      <Layout ref={this.layoutRef}>
-        <div className={s.root}>
-          <canvas className={s.canvas} ref={this.canvasRef} />
-          <div className={s.container}>
-            <div className={s.content}>
-              <h2 className={s.title} ref={this.titleRef}>
-                Artificial intelligence
-                <span>for financial markets</span>
-              </h2>
-              <p className={s.text} ref={this.textRef}>
-                Harnessing the power of machine learning
-                to develop an automated and data-driven
-                investment management firm.
-              </p>
-              <div className={s.button} ref={this.buttonRef}>
-                <ButtonNext>Discover how</ButtonNext>
+      <Fragment>
+        <Head><title>Apical - Home</title></Head>
+        <Layout ref={this.layoutRef}>
+          <div className={s.root}>
+            <canvas className={s.canvas} ref={this.canvasRef} />
+            <div className={s.container}>
+              <div className={s.content}>
+                <h2 className={s.title} ref={this.titleRef}>
+                  Artificial intelligence
+                  <span>for financial markets</span>
+                </h2>
+                <p className={s.text} ref={this.textRef}>
+                  Harnessing the power of machine learning
+                  to develop an automated and data-driven
+                  investment management firm.
+                </p>
+                <div className={s.button} ref={this.buttonRef}>
+                  <ButtonNext>Discover how</ButtonNext>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </Layout>
+        </Layout>
+      </Fragment>
     );
   }
 }
