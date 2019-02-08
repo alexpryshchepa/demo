@@ -12,12 +12,14 @@
   font-size: 14px;
   line-height: 17px;
   transition: tn(background-color);
-  
+
   &:hover {
     background-color: $color-primary-deep;
   }
 }
 
 .button {
-  
+  color: #fff;
+  font-size: 14px;
+  line-height: 17px;
 }

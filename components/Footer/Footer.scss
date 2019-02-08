@@ -8,7 +8,6 @@
 }
 
 .container {
-  @include container;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,6 +15,8 @@
   color: rgba(#fff, 0.5);
   font-size: 12px;
   line-height: 15px;
+
+  @include container;
 }
 
 .copyright {
@@ -34,11 +35,11 @@
   color: rgba(#fff, 0.5);
   text-decoration: none;
   transition: tn(color);
-  
+
   &:first-of-type {
     margin-left: 16px;
   }
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -48,10 +49,10 @@
     height: 1px;
     transition: tn(background-color);
   }
-  
+
   &:hover {
     color: #fff;
-    
+
     &::after {
       background-color: $color-primary;
     }

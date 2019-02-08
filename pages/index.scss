@@ -22,16 +22,17 @@
 }
 
 .container {
-  @include container;
   position: relative;
   z-index: 2;
   padding: 160px 0;
+
+  @include container;
 }
 
 .content {
   max-width: 50%;
   padding: 0 80px;
-  
+
   @include desktop-small {
     max-width: 80%;
   }

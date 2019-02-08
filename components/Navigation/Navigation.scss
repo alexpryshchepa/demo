@@ -8,7 +8,6 @@
 }
 
 .link {
-  @include text-overflow;
   position: relative;
   display: block;
   text-align: center;
@@ -17,6 +16,8 @@
   font-size: 14px;
   text-decoration: none;
   transition: tn(color);
+
+  @include text-overflow;
 
   &::after {
     content: '';

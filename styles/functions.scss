@@ -1,8 +1,10 @@
 @function tn($rules...) {
-  $base: .4s ease-out;
+  $base: 0.4s ease-out;
   $transition: ();
+
   @each $rule in $rules {
     $transition: append($transition, join($rule, $base), 'comma');
   }
+
   @return $transition;
 }

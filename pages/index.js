@@ -4,7 +4,7 @@ import ButtonNext from 'components/ButtonNext';
 import Vector2 from 'libs/Vector2';
 import chroma from 'chroma-js';
 import { TimelineLite } from 'gsap';
-import { widthContainer } from 'styles/variables.scss';
+import cssVariables from 'styles/variables.scss';
 import s from './index.scss';
 
 class Home extends React.Component {
@@ -30,8 +30,8 @@ class Home extends React.Component {
     const canvas = this.canvasRef.current;
 
     function getPaddingRight() {
-      return canvas.offsetWidth - parseInt(widthContainer, 10) > 0
-        ? ((canvas.offsetWidth - parseInt(widthContainer, 10)) / 2) + 80
+      return canvas.offsetWidth - parseInt(cssVariables['width-container'], 10) > 0
+        ? ((canvas.offsetWidth - parseInt(cssVariables['width-container'], 10)) / 2) + 80
         : 80;
     }
 
@@ -110,7 +110,7 @@ class Home extends React.Component {
         }
       }
 
-      const colors = chroma.scale(['#4f8aaa', '#ae9670']).colors(points.length);
+      const colors = chroma.scale(['#4f8aaa', cssVariables['color-primary']]).colors(points.length);
 
       for (let i = 0; i < points.length; i += 1) {
         points[i].color = colors[i];

@@ -2,7 +2,10 @@
 @import '~styles/functions';
 
 .link {
-  
+  color: $color-primary;
+  font-size: 15px;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
 }
 
 .button {
@@ -18,12 +21,12 @@
   cursor: pointer;
   transition: tn(color);
   user-select: none;
-  
+
   & > span {
     display: flex;
     align-items: center;
   }
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -34,17 +37,17 @@
     background-color: #ad956e;
     transition: tn(background-color);
   }
-  
+
   &:hover {
     color: $color-primary-deep;
-    
+
     &::after {
       background-color: $color-primary;
     }
-    
+
     :local(.icon) {
       background-color: $color-primary-deep;
-      
+
       & > svg {
         transform: translateX(2px);
       }
@@ -63,7 +66,7 @@
   background-color: $color-primary;
   color: #fff;
   transition: tn(background-color);
-  
+
   & > svg {
     will-change: transform;
     transition: tn(transform);
