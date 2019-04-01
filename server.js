@@ -15,6 +15,5 @@ const handle = app.getRequestHandler();
 
   server.get('*', (req, res) => handle(req, res));
 
-  await server.listen(3000);
-  console.log('> Ready on http://localhost:3000'); // eslint-disable-line no-console
+  await server.listen(process.env.PORT || 3000);
 })();
