@@ -32,7 +32,7 @@
   visibility: hidden;
   transform: translateY(-18px);
   will-change: opacity, transform;
-  
+
   @include tablet {
     display: none;
   }

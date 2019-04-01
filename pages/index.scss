@@ -36,12 +36,12 @@
   @include desktop-small {
     max-width: 80%;
   }
-  
+
   @include tablet {
     max-width: none;
     padding: 0 24px;
   }
-  
+
   @include mobile {
     padding: 0;
   }
@@ -58,7 +58,7 @@
   opacity: 0;
   transform: translate(-20px, -20px) scale(1.05);
   will-change: opacity, transform;
-  
+
   @include tablet {
     line-height: 36px;
     font-size: 32px;

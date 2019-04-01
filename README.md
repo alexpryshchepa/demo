@@ -1,6 +1,6 @@
 ## Tech
 
-[Heroku staging](https://tech.herokuapp.com/) && Live coming soon...
+[Heroku staging](https://next-tech.herokuapp.com/) && Live coming soon...
 
 #### Tech stack:
 * [NextJS](https://nextjs.org/)
