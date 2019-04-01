@@ -7,7 +7,7 @@ class Footer extends Component {
     return (
       <footer className={s.root}>
         <div className={s.container}>
-          <span className={s.copyright}>© 2018 Apical Technology Group, LP</span>
+          <span className={s.copyright}>© 2018 Technology Group, LP</span>
           <div className={s.langs}>
             Language:
             {[config.defaultLanguage, ...config.otherLanguages].map((lang) => {

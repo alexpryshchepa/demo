@@ -1,6 +1,6 @@
 {
-  "name": "apical",
-  "version": "0.0.0",
+  "name": "tech",
+  "version": "0.0.1",
   "private": true,
   "engines": {
     "yarn": ">=1.12.3",
@@ -34,7 +34,7 @@
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.11",
     "next": "^7.0.2",
-    "next-i18next": "^0.27.0",
+    "next-i18next": "0.27.0",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
     "query-string": "^6.2.0",

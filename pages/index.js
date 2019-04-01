@@ -264,7 +264,7 @@ class Home extends React.Component {
 
     return (
       <Fragment>
-        <Head><title>Apical - Home</title></Head>
+        <Head><title>Home</title></Head>
         <Layout ref={this.layoutRef}>
           <div className={s.root}>
             <canvas className={s.canvas} ref={this.canvasRef} />

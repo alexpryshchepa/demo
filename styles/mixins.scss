@@ -34,4 +34,14 @@
   width: 100%;
   max-width: $width-container;
   margin: 0 auto;
+  
+  @include desktop-small {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  
+  @include mobile {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }

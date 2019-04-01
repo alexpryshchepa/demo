@@ -26,10 +26,6 @@ class Navigation extends Component {
         link: '/about',
       },
       {
-        text: 'Talentica',
-        link: '/talentica',
-      },
-      {
         text: 'Careers',
         link: '/career',
       },

@@ -1,6 +1,6 @@
-## Apical
+## Tech
 
-[Heroku staging](https://apical-tech.herokuapp.com/) && Live coming soon...
+[Heroku staging](https://tech.herokuapp.com/) && Live coming soon...
 
 #### Tech stack:
 * [NextJS](https://nextjs.org/)
@@ -13,6 +13,3 @@
 * __yarn dev__ - development
 * __yarn build__ - build
 * __yarn start__ - start production, need to __build__ previuosly
-
-#### Heroku deployment
-* git push heroku master
